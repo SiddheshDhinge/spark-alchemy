@@ -56,7 +56,7 @@ class PostgresInteropTest extends AnyWordSpec with Matchers with SparkSessionSpe
   "Postgres interop" should {
     "calculate same results" in {
       // use Aggregate Knowledge (Postgres-compatible) HLL implementation
-      spark.conf.set(IMPLEMENTATION_CONFIG_KEY, "AGKN")
+      spark.conf.set(Constants.IMPLEMENTATION_CONFIG_KEY, "AGKN")
 
       // init Postgres extension for database
       pg.update("CREATE EXTENSION IF NOT EXISTS hll;")

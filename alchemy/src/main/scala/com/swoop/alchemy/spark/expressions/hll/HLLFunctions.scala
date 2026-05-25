@@ -177,7 +177,7 @@ trait NullableSketchAggregation extends TypedImperativeAggregate[Option[Instance
 /**
  * HyperLogLog (HLL) is a state of the art cardinality estimation algorithm with multiple implementations available.
  *
- * The underlying [[Implementation]] can be changed by setting a [[IMPLEMENTATION_CONFIG_KEY configuration value]]
+ * The underlying [[Implementation]] can be changed by setting a [[Constants.IMPLEMENTATION_CONFIG_KEY configuration value]]
  * in the [[SparkSession]] to the implementation name, or passing it as an argument.
  *
  * This function creates a composable "sketch" for each input row.
@@ -225,7 +225,7 @@ case class HyperLogLogInitSimple(
 /**
  * HyperLogLog (HLL) is a state of the art cardinality estimation algorithm with multiple implementations available.
  *
- * The underlying [[Implementation]] can be changed by setting a [[IMPLEMENTATION_CONFIG_KEY configuration value]]
+ * The underlying [[Implementation]] can be changed by setting a [[Constants.IMPLEMENTATION_CONFIG_KEY configuration value]]
  * in the [[SparkSession]] to the implementation name, or passing it as an argument.
  *
  * This version combines all input in each aggregate group into a single "sketch".
@@ -279,7 +279,7 @@ case class HyperLogLogInitSimpleAgg(
 /**
  * HyperLogLog (HLL) is a state of the art cardinality estimation algorithm with multiple implementations available.
  *
- * The underlying [[Implementation]] can be changed by setting a [[IMPLEMENTATION_CONFIG_KEY configuration value]]
+ * The underlying [[Implementation]] can be changed by setting a [[Constants.IMPLEMENTATION_CONFIG_KEY configuration value]]
  * in the [[SparkSession]] to the implementation name, or passing it as an argument.
  *
  * This version creates a composable "sketch" for each input row.
@@ -328,7 +328,7 @@ case class HyperLogLogInitCollection(
 /**
  * HyperLogLog (HLL) is a state of the art cardinality estimation algorithm with multiple implementations available.
  *
- * The underlying [[Implementation]] can be changed by setting a [[IMPLEMENTATION_CONFIG_KEY configuration value]]
+ * The underlying [[Implementation]] can be changed by setting a [[Constants.IMPLEMENTATION_CONFIG_KEY configuration value]]
  * in the [[SparkSession]] to the implementation name, or passing it as an argument.
  *
  * This version combines all input in each aggregate group into a a single "sketch".
@@ -384,7 +384,7 @@ case class HyperLogLogInitCollectionAgg(
 /**
  * HyperLogLog (HLL) is a state of the art cardinality estimation algorithm with multiple implementations available.
  *
- * The underlying [[Implementation]] can be changed by setting a [[IMPLEMENTATION_CONFIG_KEY configuration value]]
+ * The underlying [[Implementation]] can be changed by setting a [[Constants.IMPLEMENTATION_CONFIG_KEY configuration value]]
  * in the [[SparkSession]] to the implementation name, or passing it as an argument.
  *
  * This version aggregates the "sketches" into a single merged "sketch" that represents the union of the constituents.
@@ -445,7 +445,7 @@ case class HyperLogLogMerge(
 /**
  * HyperLogLog (HLL) is a state of the art cardinality estimation algorithm with multiple implementations available.
  *
- * The underlying [[Implementation]] can be changed by setting a [[IMPLEMENTATION_CONFIG_KEY configuration value]]
+ * The underlying [[Implementation]] can be changed by setting a [[Constants.IMPLEMENTATION_CONFIG_KEY configuration value]]
  * in the [[SparkSession]] to the implementation name, or passing it as an argument.
  *
  * This version merges multiple "sketches" in one row into a single field.
@@ -511,7 +511,7 @@ case class HyperLogLogRowMerge(
 /**
  * HyperLogLog (HLL) is a state of the art cardinality estimation algorithm with multiple implementations available.
  *
- * The underlying [[Implementation]] can be changed by setting a [[IMPLEMENTATION_CONFIG_KEY configuration value]]
+ * The underlying [[Implementation]] can be changed by setting a [[Constants.IMPLEMENTATION_CONFIG_KEY configuration value]]
  * in the [[SparkSession]] to the implementation name, or passing it as an argument.
  *
  * Returns the estimated cardinality of an HLL "sketch"
@@ -550,7 +550,7 @@ case class HyperLogLogCardinality(
 /**
  * HyperLogLog (HLL) is a state of the art cardinality estimation algorithm with multiple implementations available.
  *
- * The underlying [[Implementation]] can be changed by setting a [[IMPLEMENTATION_CONFIG_KEY configuration value]]
+ * The underlying [[Implementation]] can be changed by setting a [[Constants.IMPLEMENTATION_CONFIG_KEY configuration value]]
  * in the [[SparkSession]] to the implementation name, or passing it as an argument.
  *
  * Computes a merged (unioned) sketch and uses the fact that |A intersect B| = (|A| + |B|) - |A union B| to estimate

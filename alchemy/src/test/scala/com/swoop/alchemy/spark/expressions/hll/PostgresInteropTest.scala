@@ -1,7 +1,8 @@
 package com.swoop.alchemy.spark.expressions.hll
 
-import java.sql.{DriverManager, ResultSet, Statement}
+import com.swoop.alchemy.spark.expressions.hll.Constants.IMPLEMENTATION_CONFIG_KEY
 
+import java.sql.{DriverManager, ResultSet, Statement}
 import com.swoop.alchemy.spark.expressions.hll.functions._
 import com.swoop.test_utils.SparkSessionSpec
 import org.apache.spark.sql.{DataFrame, SparkSession}

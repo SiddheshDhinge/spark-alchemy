@@ -10,8 +10,6 @@ import net.agkn.hll.serialization.{HLLMetadata, SchemaVersionOne}
 import net.agkn.hll.util.BitVector
 
 package object hll {
-  val IMPLEMENTATION_CONFIG_KEY = "com.swoop.alchemy.hll.implementation"
-
   def strmToAgkn(from: stream.cardinality.HyperLogLogPlus): net.agkn.hll.HLL = {
     HLL.fromBytes(strmToAgkn(from.getBytes))
   }

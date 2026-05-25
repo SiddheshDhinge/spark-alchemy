@@ -2,7 +2,9 @@ package com.swoop.alchemy.spark.expressions.hll
 
 import com.swoop.alchemy.spark.expressions.WithHelper
 import com.swoop.alchemy.spark.expressions.hll.HyperLogLogBase.{nameToImpl, resolveImplementation}
-import com.swoop.alchemy.spark.expressions.hll.Implementation.{AGGREGATE_KNOWLEDGE, AGKN, STREAM_LIB, STRM}
+import com.swoop.alchemy.spark.expressions.hll.factory.Implementation.{AGGREGATE_KNOWLEDGE, AGKN, BAREBONES_HLL, DATASKETCHES_HLL, STREAM_LIB, STRM}
+import com.swoop.alchemy.spark.expressions.hll.factory.{AgKn, BareBonesHLL, DataSketches, Implementation, StreamLib}
+import com.swoop.alchemy.spark.expressions.hll.implementation.Instance
 import org.apache.spark.sql.EncapsulationViolator.createAnalysisException
 import org.apache.spark.sql.catalyst.InternalRow
 import org.apache.spark.sql.catalyst.analysis.TypeCheckResult
@@ -36,7 +38,7 @@ object HyperLogLogBase {
       impl
     else
       SparkSession.getActiveSession
-        .flatMap(_.conf.getOption(IMPLEMENTATION_CONFIG_KEY))
+        .flatMap(_.conf.getOption(Constants.IMPLEMENTATION_CONFIG_KEY))
         .map(nameToImpl)
         .getOrElse(StreamLib)
 
@@ -55,6 +57,8 @@ object HyperLogLogBase {
     case STREAM_LIB => StreamLib
     case AGKN => AgKn
     case AGGREGATE_KNOWLEDGE => AgKn
+    case DATASKETCHES_HLL => DataSketches
+    case BAREBONES_HLL => BareBonesHLL
     case s => throw createAnalysisException(
       s"The HLL implementation choice '$s' is not one of the valid options: ${Implementation.OPTIONS.mkString(", ")}"
     )

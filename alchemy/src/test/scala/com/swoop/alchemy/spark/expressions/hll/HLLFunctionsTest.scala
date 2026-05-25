@@ -1,7 +1,9 @@
 package com.swoop.alchemy.spark.expressions.hll
 
 import com.clearspring.analytics.stream.cardinality.HyperLogLogPlus
-import com.swoop.alchemy.spark.expressions.hll.Implementation.{AGKN, STRM}
+import com.swoop.alchemy.spark.expressions.hll.Constants.IMPLEMENTATION_CONFIG_KEY
+import com.swoop.alchemy.spark.expressions.hll.factory.Implementation.{AGKN, STRM}
+import com.swoop.alchemy.spark.expressions.hll.factory.{AgKn, Implementation, StreamLib}
 import com.swoop.alchemy.spark.expressions.hll.functions.{hll_init_collection, hll_init_collection_agg, _}
 import com.swoop.test_utils.SparkSessionSpec
 import net.agkn.hll.HLL

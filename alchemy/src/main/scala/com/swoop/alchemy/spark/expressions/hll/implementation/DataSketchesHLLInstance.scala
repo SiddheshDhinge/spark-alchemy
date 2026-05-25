@@ -18,7 +18,11 @@ class DataSketchesHLLInstance(var hll: HllSketch) extends Instance {
         union.reset()
         union.update(hll)
         union.update(instance.hll)
-        hll = union.getResult(TgtHllType.HLL_4)
+        val tgtHllType = if(hll.getTgtHllType.ordinal() > instance.hll.getTgtHllType.ordinal())
+          hll.getTgtHllType
+        else
+          instance.hll.getTgtHllType
+        hll = union.getResult(tgtHllType)
         this
       case _ => throw new IllegalArgumentException(s"Type of HLL to merge does not match this HLL (${hll.getClass.getName})")
     }

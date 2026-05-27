@@ -7,6 +7,7 @@ ThisBuild / crossScalaVersions := Seq("2.12.15")
 ThisBuild / javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 val sparkVersion = "3.5.2"
+val sparkVersion = "3.2.0"
 
 lazy val scalaSettings = Seq(
   scalaVersion := "2.12.15",
@@ -26,7 +27,6 @@ lazy val alchemy = (project in file("."))
     Test / resourceDirectory := baseDirectory.value / "alchemy/src/test/resources",
     libraryDependencies ++= Seq(
       "net.agkn" % "hll" % "1.6.0" % "provided",
-      "org.apache.datasketches" % "datasketches-java" % "5.0.0" % "provided",
       "io.github.bareboneslib" % "barebones-hll" % "0.5.0" % "provided",
       "org.apache.spark" %% "spark-sql" % sparkVersion % "provided",
       "org.postgresql" % "postgresql" % "42.2.8" % Test,

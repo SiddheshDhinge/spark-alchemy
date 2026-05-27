@@ -20,9 +20,8 @@ object Implementation {
   val STRM = "STRM"
   val AGGREGATE_KNOWLEDGE = "AGGREGATE_KNOWLEDGE"
   val STREAM_LIB = "STREAM_LIB"
-  val DATASKETCHES_HLL = "DATASKETCHES_HLL"
   val BAREBONES_HLL = "BAREBONES_HLL"
-  val OPTIONS: Seq[String] = Seq(AGKN, STRM, AGGREGATE_KNOWLEDGE, STREAM_LIB, DATASKETCHES_HLL, BAREBONES_HLL)
+  val OPTIONS: Seq[String] = Seq(AGKN, STRM, AGGREGATE_KNOWLEDGE, STREAM_LIB, BAREBONES_HLL)
 
   // TODO @peter debugging tools, remove:
   def registerSetToSeq(r: RegisterSet): Seq[Int] =

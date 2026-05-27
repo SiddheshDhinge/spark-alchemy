@@ -12,10 +12,6 @@ object Constants {
     val SPARSE_PRECISION = "com.swoop.alchemy.hll.implementation.strmlib.sparse_precision"
   }
 
-  object DataSketchesHLL {
-    val REG_WIDTH = "com.swoop.alchemy.hll.implementation.datasketches_hll.reg_width"
-  }
-
   object BareBones {
     val REG_WIDTH = "com.swoop.alchemy.hll.implementation.barebones.reg_width"
   }
